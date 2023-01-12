@@ -1,0 +1,9 @@
+@use "sass:color";
+@forward 'media-queries';
+
+@mixin hover-underline($color: black, $duration: 100ms, $time-function: linear) {
+    border-bottom: 2px solid color.change($color, $alpha: .25);
+    transition: border-color $duration $time-function;
+
+    &:hover { border-color: $color }
+}

@@ -1,54 +1,21 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal TypeScript starter
-</h1>
+## Getting started
 
-## 🚀 Quick start
+To start the site there are a few things to set up initially. First ensure that there is a `.env.development` file at the projects root directory with the variables:
+- CONTENTFUL_API_KEY: Contentful access token
+- CONTENTFUL_SPACE: Contentful space for data to be source from
+- CONTENTFUL_ENV: contentful environment you wanted your data sourced from
 
-1.  **Create a Gatsby site.**
+From here you can then run `npm ci` to install dependencies.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+### Start site locally
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby
-    ```
+Then to start the site locally you can run `npm run dev` for development mode
 
-2.  **Start developing.**
+### Test production build
 
-    Navigate into your new site’s directory and start it up.
+In order to test a production build you can run `npm run build`. After that command exits successfully you can then use a local python http server to host the static pages via `python -m http.server -d ./public` if you have python 3. The `public` folder being the default locaiton of the build pages for Gatsby.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## Deployment
 
-3.  **Open the code and start customizing!**
+This site is built as a collection of static pages and deployed via Github pages. This is accomplished during every pull request merge made into the `main` branch as well as a webhook dispacth made from Contentful. For reference on how this is achieved take a look atthe `./.github/workflows/deploy_static_site.yml` to see the jobs that are ran. 
 
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.tsx` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)

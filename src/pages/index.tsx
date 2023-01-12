@@ -3,30 +3,27 @@ import { graphql, Link } from 'gatsby'
 import type { HeadFC, PageProps } from "gatsby";
 import * as styles from '../styles/pages/index.module.scss';
 import { slugify } from "../../helpers";
+import config from '../../config';
 
 const { postCard } = styles;
 
 interface IndexPageProps extends PageProps {
     data: {
-        allBlogPost: {
+        allContentfulBlogPost: {
             nodes: Array<any>
         }
     }
 }
 
 const IndexPage: React.FC<IndexPageProps> = (props) => {
-    console.log(props);
-    const { data: { allBlogPost: { nodes } }} = props; 
+    const { data: { allContentfulBlogPost: { nodes } }} = props; 
 
     return (
         <>
-            {nodes.map(({title, publishedAt, firstPublishedAt}, index) => 
-                <Link to={`/post/${slugify(title)}/`} className={postCard}>
-                    <div key={index}>
-                        <h3>{title}</h3>
-                        <p>published {firstPublishedAt}</p>
-                        <p>updated {publishedAt}</p>
-                    </div>
+            {nodes.map(({title, createdAt}, index) => 
+                <Link to={`/post/${slugify(title)}/`} className={postCard} key={index}>
+                    <h2>{title}</h2>
+                    <p>{createdAt}</p>
                 </Link>
             )}
         </>
@@ -37,14 +34,14 @@ export default IndexPage
 
 export const pageQuery = graphql`
     query {
-        allBlogPost {
+        allContentfulBlogPost {
             nodes {
                 title
-                publishedAt(formatString: "LL")
-                firstPublishedAt(formatString: "LL")
+                createdAt(formatString: "LL")
+                updatedAt(formatString: "LL")
             }
         }
     }
 `;
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <title>{config.siteName} - home</title>

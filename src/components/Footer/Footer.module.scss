@@ -1,0 +1,12 @@
+.footer {
+    width: 100%;
+    display: block;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    font-size: .75rem;
+    font-weight: bold;
+
+    & pre {
+        margin: 0;
+    }
+}

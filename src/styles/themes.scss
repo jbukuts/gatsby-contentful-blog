@@ -1,0 +1,17 @@
+@use "sass:map";
+
+$colors: (
+    background: white,
+    foreground: #0A0903,
+    success: #C0DFA1,
+    danger: #9F4A54,
+    info: #B3C2F2
+);
+
+@mixin use-theme($theme: 'default') {
+    @each $key, $value in $colors {
+        --colors-#{$key}: #{map-get($colors, $key)};
+    }
+}
+
+

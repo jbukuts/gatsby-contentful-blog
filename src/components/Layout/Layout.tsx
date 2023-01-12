@@ -1,5 +1,6 @@
 import React from "react"
 import Header from "../Header/Header";
+import Footer from '../Footer/Footer';
 import * as styles from './Layout.module.scss';
 
 const { main } = styles;
@@ -15,6 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
       <main className={main}>
         {children}
       </main>
+      <Footer/>
     </>
   )
 }

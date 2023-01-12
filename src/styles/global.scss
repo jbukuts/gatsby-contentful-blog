@@ -1,11 +1,27 @@
+@use 'themes';
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+:root {
+    @include themes.use-theme();
+}
 
 html,body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    min-height: 100vh;
 }
 
 html {
     font-family: 'Playfair Display', serif;
+}
+
+#___gatsby {
+    min-height: 100vh;
+}
+
+#gatsby-focus-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }

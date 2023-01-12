@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .header {
     border-bottom: 3px double black;
     padding: 1rem 1.5rem;
@@ -25,10 +27,30 @@
     & > h1 {
         color: black; 
     }
+
+    & > div {
+        display: flex;
+        align-items: flex-end;
+        gap: 2rem;
+    }
 }
 
 .links {
     display: flex;
-    color:#9F4A54;
+    color: color.adjust(black, $lightness: 40%);
     gap: 1.25rem;
+}
+
+
+@include apply-less-than('md') {
+    .header {
+        margin-bottom: 1.5rem;
+        & > h1 {
+            font-size: 1.25rem;
+        }
+
+        & .links {
+            display: none;
+        }
+    }
 }

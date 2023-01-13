@@ -19,6 +19,10 @@ const config = {
     },
     pages: [
         {
+            name: 'blog',
+            path: '/blog'
+        },
+        {
             name: 'about',
             path: '/about'
         },

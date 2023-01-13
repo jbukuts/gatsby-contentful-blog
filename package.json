@@ -19,6 +19,7 @@
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@contentful/rich-text-types": "^16.0.2",
+    "framer-motion": "^8.4.2",
     "gatsby": "^5.3.3",
     "gatsby-plugin-image": "^3.3.2",
     "gatsby-plugin-sass": "^6.3.1",

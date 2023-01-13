@@ -24,10 +24,10 @@ const PAGE_TRANSITIONS = {
 }
 
 const Layout = (props: LayoutProps) => {
-  const { children,path } = props;
+  const { children, path } = props;
   return (
     <LazyMotion features={domAnimation}>
-      <Header />
+      <Header currentPath={path}/>
       <AnimatePresence exitBeforeEnter>
         <m.main
           {...PAGE_TRANSITIONS}

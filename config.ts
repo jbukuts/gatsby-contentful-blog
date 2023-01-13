@@ -32,7 +32,7 @@ const config = {
         },
         {
             name: 'pictures',
-            path: '/about'
+            path: '/pictures'
         }
     ]
 } as ConfigType;

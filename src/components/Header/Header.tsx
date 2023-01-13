@@ -7,11 +7,22 @@ import { LogoInstagram, LogoFacebook, LogoTwitter } from '@carbon/icons-react';
 const { header, links, socials } = styles;
 const { pages, siteName } = config as ConfigType;
 
-const Header = () => {
+interface HeaderProps {
+    currentPath: string;
+}
+
+const Header = ({ currentPath }: HeaderProps) => {
+
     return <header className={header}>
         <h1><Link to='/'>{siteName}</Link></h1>
         <div>
-            <div className={links}>{pages.map(({name, path}, index: number) => <h3 key={index}><Link to={path}>{name}</Link></h3>)}</div>
+            <div className={links}>
+                {pages.map(({name, path}, index: number) => (
+                    <h3 key={index} style={{ textDecoration: currentPath.startsWith(path) ? 'underline' : 'none'}}>
+                        <Link to={path}>{name}</Link>
+                    </h3>
+                ))}
+            </div>
             <div className={socials}>
                 <LogoInstagram size={24}/>
                 <LogoFacebook size={24}/>

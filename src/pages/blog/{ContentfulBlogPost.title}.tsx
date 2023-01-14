@@ -5,7 +5,8 @@ import config from '../../../config';
 import type { HeadFC } from "gatsby";
 import * as styles from '../../styles/pages/blog-post.module.scss';
 import { BLOCKS } from "@contentful/rich-text-types";
-// import { useContentfulImage } from "gatsby-source-contentful/hooks";
+import { GatsbyImage } from 'gatsby-plugin-image';
+import { useContentfulImage } from "gatsby-source-contentful/hooks";
 
 const { content, assetImage } = styles;
 
@@ -34,8 +35,7 @@ const renderOptions = (references: Array<BlogPostContentRefs>) => {
     references.forEach((ref: BlogPostContentRefs) => {
         const { contentful_id, url, height, width, description } = ref;
         referencesMap.set(contentful_id, {
-            url,
-            src: url,
+            url: url.substring(`http${url.startsWith('https') ? 's ': ''}:`.length),
             height,
             width,
             alt: description || ''
@@ -45,12 +45,12 @@ const renderOptions = (references: Array<BlogPostContentRefs>) => {
     return {
         renderNode: {
             [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-                const assetData = referencesMap.get(node.data?.target?.sys?.id);
-                if (!assetData) return;
-                // return <GatsbyImage alt='' image={useContentfulImage({ image: assetData})}></GatsbyImage>
-                return (
-                    <img className={assetImage} {...assetData} />
-                );
+                const image = referencesMap.get(node.data?.target?.sys?.id);
+                return image ? <GatsbyImage 
+                    className={assetImage} 
+                    alt={image.alt} 
+                    image={useContentfulImage({ image })}
+                /> : null
             },
         },
   };

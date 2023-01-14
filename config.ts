@@ -15,7 +15,7 @@ const config = {
     socialMedia: {
         twitter: '',
         facebook: '',
-        instagrame: ''
+        instagram: ''
     },
     pages: [
         {
@@ -27,8 +27,8 @@ const config = {
             path: '/about'
         },
         {
-            name: 'random thoughts',
-            path: '/random-thoughts'
+            name: 'random',
+            path: '/random'
         },
         {
             name: 'pictures',

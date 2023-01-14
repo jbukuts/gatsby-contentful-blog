@@ -1,18 +1,26 @@
 @use 'sass:color';
 
+// we can export vars to our js files!
+:export {
+    breakpointMd: $breakpoint-md;
+}
+
 .header {
-    border-bottom: 3px double black;
     padding: 1rem 1.5rem;
+    // margin: 2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: 2rem;
     user-select: none;
     display: flex;
-    align-items: baseline;
-    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
     position: sticky;
     top: 0;
-    background-color: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(5px);
     z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
 
     & * { margin: 0 }
 
@@ -27,12 +35,14 @@
 
     & > h1 {
         color: black; 
+        margin-right: auto;
     }
 
-    & > div {
+    & > * {
         display: flex;
-        align-items: flex-end;
-        gap: 2rem;
+        align-items: center;
+        gap: 1.5rem;
+        box-sizing: border-box;
     }
 }
 
@@ -42,16 +52,47 @@
     gap: 1.25rem;
 }
 
+.socials {
+    display: flex;
+    gap: .5rem;
+}
+
+.burgerButton {
+    background-color: transparent;
+    border: none;
+    display: none;
+}
+
 
 @include apply-less-than('md') {
+    .burgerButton {
+        display: block;
+    }
+
     .header {
         margin-bottom: 1.5rem;
         & > h1 {
             font-size: 1.25rem;
         }
+    }
 
-        & .links {
-            display: none;
-        }
+    .links {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgb(244, 244, 244);
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+@include apply-less-than('sm') {
+    .socials {
+        display: none;
     }
 }

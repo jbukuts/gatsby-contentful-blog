@@ -2,9 +2,13 @@
     width: 100%;
     display: block;
     margin-top: auto;
-    padding-top: 1.5rem;
-    font-size: .75rem;
-    font-weight: bold;
+    padding: .25rem 0;
+    box-sizing: border-box;
+    font-size: .5rem;
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border-top: double 3px white;
 
     & pre {
         margin: 0;

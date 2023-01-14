@@ -1,12 +1,16 @@
+$breakpoint-sm: 30rem;
+$breakpoint-md: 45rem;
+$breakpoint-lg: 70rem;
+
 $breakpoints: (
   "sm": (
-    max-width: 30rem,
+    max-width: $breakpoint-sm,
   ),
   "md": (
-    max-width: 45rem,
+    max-width: $breakpoint-md,
   ),
   "lg": (
-    max-width: 70rem,
+    max-width: $breakpoint-lg,
   )
 ) !default;
 

@@ -20,6 +20,8 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
 
     return (
         <>
+            <h1>Most Recent Blog Posts</h1>
+            <hr/>
             {nodes.map(({title, createdAt}, index) => 
                 <Link to={`/blog/${slugify(title)}/`} className={postCard} key={index}>
                     <h2>{title}</h2>

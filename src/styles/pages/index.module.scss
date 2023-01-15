@@ -4,28 +4,49 @@
     color: black;
     text-decoration: none;
     width: fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 1.25rem;
-    // @include hover-underline(black);
 
-    & > * {
-        margin: 0;
+    & > div {
+        display: flex;
+        gap: 1rem;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+
+        & > h2 {
+            @include responsive-text(1.5rem, 2rem);
+        }
+
+        & > p {
+            flex-shrink: 0;
+            font-style: italic;
+        }
+
+        & > * {
+            margin: 0;
+        }
+    }
+
+    & > p {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
     }
 
     &:hover {
         text-decoration: underline;
         text-decoration-color: color.adjust(black, $lightness: 60%);
+        
+        & > p {
+            text-decoration: none !important;
+        }
     }
 }
 
 
 @include apply-less-than('md') {
     .postCard {
-        & > h2 {
-            font-size: 1rem;
+        & h2 {
+            font-size: 1.25rem;
         }
     }
 }

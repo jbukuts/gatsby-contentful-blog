@@ -7,3 +7,7 @@
 
     &:hover { border-color: $color }
 }
+
+@mixin responsive-text($min: 1rem, $max: 2rem) {
+    font-size: min(max(5vw, $min), $max);
+}

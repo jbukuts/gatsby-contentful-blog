@@ -1,6 +1,6 @@
 ## Getting started
 
-In order to run this site you'll need a Contentful account set up with the relavant data. This site pulls data in from a Contentful content model called a `BlogPost` that contains only a string field called `Title` and a rich text field for `Content`.
+In order to run this site you'll need a Contentful account set up with the relavant data. This site pulls data in from a Contentful content model called a `BlogPost` that contains only a string field called `Title`, a string field for `Description`, and a rich text field for `Content`.
 
 Once you have that setup, in order to start the site there are a few environment variables to setup locally. First ensure that there is a `.env.development` file at the projects root directory with the variables:
 - CONTENTFUL_API_KEY: Contentful access token

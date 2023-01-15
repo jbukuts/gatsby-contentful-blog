@@ -22,10 +22,13 @@ const IndexPage: React.FC<IndexPageProps> = (props) => {
         <>
             <h1>Most Recent Blog Posts</h1>
             <hr/>
-            {nodes.map(({title, createdAt}, index) => 
+            {nodes.map(({title, createdAt, description}, index) => 
                 <Link to={`/blog/${slugify(title)}/`} className={postCard} key={index}>
-                    <h2>{title}</h2>
-                    <p>{createdAt}</p>
+                    <div>
+                        <h2>{title}</h2>
+                        <p>{createdAt}</p>
+                    </div>
+                    <p>{description}</p>
                 </Link>
             )}
         </>
@@ -39,6 +42,7 @@ export const pageQuery = graphql`
         allContentfulBlogPost(sort: {createdAt: DESC}) {
             nodes {
                 title
+                description
                 createdAt(formatString: "LL")
                 updatedAt(formatString: "LL")
             }
